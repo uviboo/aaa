@@ -1,0 +1,67 @@
+def addmultiplenumbers(numbers):
+  return sum(numbers)
+
+def multiplymultiplenumbers(numbers):
+  result = 1
+  for num in numbers:
+      result *= num
+  return result
+
+def isiteven(num):
+  return num % 2 == 0
+
+def isitaninteger(num):
+  try:
+      int(num)
+      return True
+  except ValueError:
+      return False
+    
+
+
+def main():
+  print("Welcome to the Interactive Calculator!")
+
+  while True:
+      print("\nMenu:")
+      print("1. Suma")
+      print("2. Multiplicación")
+      print("3. ¿Es este números par?")
+      print("4. ¿Es este un número entero?")
+      print("5. Operación libre")
+      print("6. Salir")
+
+      choice = input("Enter your choice (1-6): ")
+
+      if choice == '1':
+          numbers = [int(x) for x in input("Ingresa números separados por un espacio: ").split()]
+          result = addmultiplenumbers(numbers)
+          print("Sum:", result)
+      elif choice == '2':
+          numbers = [int(x) for x in input("Ingresa números separados por un espacio: ").split()]
+          result = multiplymultiplenumbers(numbers)
+          print("Product:", result)
+      elif choice == '3':
+          num = int(input("Ingresa un número: "))
+          result = isiteven(num)
+          print(f"Es {num} par?:", result)
+      elif choice == '4':
+          num = input("Ingresa un número: ")
+          result = isitaninteger(num)
+          print(f"Es {num} un entero?:", result)
+      elif choice == '5':
+          expression = input("Ingresa un cálculo de 3 o más números: ")
+          try:
+            result = eval(num)
+            print(f"El resultado de tu cálculo es: {result}")
+          except NameError:
+              print("Error: La expresión ingresada no es válida. Inténtelo nuevamente.")
+      elif choice == '6':
+          print("¡Muchas gracias por usar mi calculadora!")
+
+          break
+      else:
+          print("La expresión ingresada no es válida. Inténtelo nuevamente.")
+
+if __name__ == "__main__":
+  main()
